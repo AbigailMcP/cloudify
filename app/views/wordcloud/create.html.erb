@@ -1,2 +1,9 @@
-<h1>Wordcloud#create</h1>
-<p>Find me in app/views/wordcloud/create.html.erb</p>
+Tweets
+
+<ul>
+   <% @search.each do |tweet| %>
+      <li>
+        <%= tweet.text%>
+      </li>
+   <% end %>
+</ul>
