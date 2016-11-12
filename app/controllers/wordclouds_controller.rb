@@ -6,6 +6,8 @@ class WordcloudsController < ApplicationController
   def create
     wordcloud = Wordcloud.new(twitter_params)
     @results = wordcloud.tweets
+    @array = wordcloud.all_words
+    @word_count = wordcloud.word_count
   end
 
   def show
