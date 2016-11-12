@@ -1,0 +1,2 @@
+module WordcloudHelper
+end
