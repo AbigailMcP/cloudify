@@ -1,31 +1,7 @@
-Tweets
-
-<ul>
-   <% @results.each do |tweet| %>
-      <li>
-        <%= tweet.text%>
-      </li>
-   <% end %>
-</ul>
-
-<%= @array %>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<%= @word_count %>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div>
-  <h4>Tags Cloud</h4>
+<div class="title">
+  <h4>Tweet Cloud</h4>
+</div>
+<div class="wordcloud">
   <% word_cloud @word_count, ['size1', 'size2', 'size3', 'size4'] do |word, css_class| %>
     <p class="<%= css_class %>">
       <%= word %>

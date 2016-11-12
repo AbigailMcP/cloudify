@@ -7,6 +7,8 @@ class Wordcloud < ApplicationRecord
     count
   end
 
+  private
+
   def all_words
     tweets.map {|tweet| tweet.text.split(' ')}.flatten
   end

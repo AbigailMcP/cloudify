@@ -6,3 +6,18 @@
 .size2 { font-size: 1.0em;}
 .size3 { font-size: 1.5em;}
 .size4 { font-size: 2em;}
+
+.vcontainer {
+  position: absolute;
+  top: 35%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+body {
+  margin: 0;
+  background-image: url('wallpaper.jpg');
+  background-size: 1440px 800px;
+  background-repeat:no-repeat;
+  display: compact;
+}

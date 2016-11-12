@@ -1,8 +1,24 @@
-<h1>Cloudify</h1>
-<p>Enter Twitter handle to Cloudify tweets!</p>
-<div>
-  <%= form_for @wordcloud do |f| %>
-    <%= f.text_field :username %>
-    <%= f.submit "Cloudify!" %>
-  <% end %>
-</div>
+<div class="vcontainer">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Cloudify</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4>Enter a Twitter handle to reveal their Tweet cloud</p>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <%= form_for @wordcloud, html: { class: "form-inline text-center" } do |f| %>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">@</div>
+          <%= f.text_field :username, placeholder: 'Twitter handle', class: "form-control" %>
+        </div>
+      </div>
+      <%= f.submit "Cloudify!", class: "btn btn-primary"  %>
+      <% end %>
+    </div>
+  </div>
