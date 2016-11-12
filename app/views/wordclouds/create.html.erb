@@ -1,10 +1,16 @@
-<div class="title">
-  <h4>Tweet Cloud</h4>
-</div>
-<div class="wordcloud">
-  <% word_cloud @word_count, ['size1', 'size2', 'size3', 'size4'] do |word, css_class| %>
-    <p class="<%= css_class %>">
-      <%= word %>
-    </p>
-  <% end %>
+<div class="vcontainer">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Tweet cloud for @<%= @wordcloud.username %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <% word_cloud @word_count, ['size1', 'size2', 'size3', 'size4'] do |word, css_class| %>
+        <span class="<%= css_class %>">
+          <%= word %>
+        </span>
+      <% end %>
+    </div>
+  </div>
 </div>
