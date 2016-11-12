@@ -1,14 +1,11 @@
 class WordcloudController < ApplicationController
   def new
+    @wordcloud = Wordcloud.new
   end
 
   def create
-    username = twitter_params[:username]
-    options = {:count => 10, :include_rts => true}
-    @search = TWITTER.user_timeline(username, options)
-  end
-
-  def show
+    wordcloud = Wordcloud.new(twitter_params)
+    @results = wordcloud.tweets
   end
 
   private
