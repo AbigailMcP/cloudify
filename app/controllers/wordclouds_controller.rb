@@ -1,4 +1,4 @@
-class WordcloudController < ApplicationController
+class WordcloudsController < ApplicationController
   def new
     @wordcloud = Wordcloud.new
   end
@@ -8,9 +8,12 @@ class WordcloudController < ApplicationController
     @results = wordcloud.tweets
   end
 
+  def show
+  end
+
   private
 
   def twitter_params
-    params.permit(:username)
+    params.require(:wordcloud).permit(:username)
   end
 end
