@@ -1,8 +1,10 @@
 # Cloudify
 
-Cloudify is a web based application that creates word clouds from Twitter timelines. Just enter a users Twitter handle and watch as a hella-beautiful tweet cloud materialises.
+Cloudify is a web based application that creates word clouds from Twitter timelines. Just enter a user's Twitter handle and watch as a hella-fly Tweet cloud materialises.
 
-Visit the [deployed version](https://cloudify.herokuapp.com/) and Cloudify to your heart's content.
+Visit the [deployed version](https://cloudify.herokuapp.com/) and cloudify to your heart's content.
+
+(Please scroll down for instructions on running the app locally and notes on my approach to the project.)
 
 ![Imgur](http://i.imgur.com/hBBQBEA.png)
 
@@ -66,9 +68,9 @@ Run tests using RSpec:
 
 	$ rspec
 
-## Contributions
+## Notes on approach
 
-To contribute to this project, please fork this repo and make a pull request with changes.
+Coming soon!
 
 #### To do
 
