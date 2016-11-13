@@ -74,6 +74,7 @@ Coming soon!
 
 #### To do
 
-- Button on cloud page linking back to homepage
+- Button on cloud page linking back to homepage - done
 - Error handling for invalid username
 - Option to change colour of word cloud
+- Snazzy Favicon!

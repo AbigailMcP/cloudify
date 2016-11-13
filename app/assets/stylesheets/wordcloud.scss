@@ -24,7 +24,7 @@
 .vcontainer-home {
   width: 80%;
   position: absolute;
-  top: 210px;
+  top: 100px;
   left:50%;
   transform: translate(-50%);
 }
@@ -78,4 +78,8 @@ h1 {
 .btn:hover {
     background-color: white !important;
     color: #3779A8 !important;
+}
+
+.logo {
+  width: 250px;
 }
