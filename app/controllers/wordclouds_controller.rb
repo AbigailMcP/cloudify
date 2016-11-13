@@ -14,7 +14,7 @@ class WordcloudsController < ApplicationController
 
   def show
     @wordcloud = Wordcloud.find(params[:id])
-    @word_count = @wordcloud.word_count
+    @words = @wordcloud.reduced_word_count
   end
 
   private

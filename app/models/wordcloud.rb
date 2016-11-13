@@ -1,15 +1,23 @@
 class Wordcloud < ApplicationRecord
   validates :username, presence: true
 
-  TWEET_COUNT = 30
+  TWEET_COUNT = 1000
+
+  def reduced_word_count
+    Hash[ordered_word_count.first(100).shuffle]
+  end
+
+  private
+
+  def ordered_word_count
+    Hash[word_count.sort_by {|k,v| v}.reverse]
+  end
 
   def word_count
     count = Hash.new(0)
     filtered_words.each {|word| count[word] += 1}
     count
   end
-
-  private
 
   def filtered_words
     all_words - stop_words
