@@ -65,3 +65,17 @@ h1 {
 .back-button {
   padding-bottom: 30px;
 }
+
+.btn {
+    padding: 14px 24px;
+    border-color: white !important;
+    border-style: solid;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: none !important;
+}
+
+.btn:hover {
+    background-color: white !important;
+    color: #3779A8 !important;
+}
