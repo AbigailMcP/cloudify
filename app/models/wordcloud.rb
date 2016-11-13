@@ -2,9 +2,10 @@ class Wordcloud < ApplicationRecord
   validates :username, presence: true
 
   TWEET_COUNT = 100
+  WORD_COUNT = 50
 
   def reduced_word_count
-    ordered_word_count.first(50).shuffle.to_h
+    ordered_word_count.first(WORD_COUNT).shuffle.to_h
   end
 
   def user
