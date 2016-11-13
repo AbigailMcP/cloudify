@@ -1,9 +1,6 @@
 class Wordcloud < ApplicationRecord
   validates :username, presence: true
 
-  # STOPWORDS = File.readlines('./app/assets/stopwords.txt')
-  # STOPWORDS2 = STOPWORDS.map(&:strip)
-
   def word_count
     count = Hash.new(0)
     filtered_words.each {|word| count[word] += 1}
@@ -22,11 +19,11 @@ class Wordcloud < ApplicationRecord
   end
 
   def all_words
-    tweets.map {|tweet| tweet.text.downcase.split(' ')}.flatten
+    tweets.map {|tweet| tweet.text.downcase.gsub(/\W/, ' ').split(' ')}.flatten
   end
 
   def tweets
-    options = {:count => 20, :include_rts => true}
+    options = {:count => 30, :include_rts => true}
     TWITTER.user_timeline(username, options)
   end
 
