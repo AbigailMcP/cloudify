@@ -22,6 +22,8 @@
 }
 
 body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 1.5em;
   margin: 0;
   background-image: image_url('wallpaper.jpg');
   background-size: 1440px 800px;
@@ -30,6 +32,18 @@ body {
 }
 
 h1 {
-  padding-bottom: 50px;
+  font-family: 'lobster', serif !important;
+  letter-spacing: 4px;
+  font-size: 4em !important;
+  padding-bottom: 35px;
   color: white !important;
+}
+
+.panel-default {
+  background-color: rgba(255,255,255,0.3) !important;
+  border-style: none !important;
+}
+
+.panel-body {
+  padding: 60px !important;
 }
