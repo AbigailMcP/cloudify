@@ -1,6 +1,8 @@
 class Wordcloud < ApplicationRecord
   validates :username, presence: true
 
+  TWEET_COUNT = 30
+
   def word_count
     count = Hash.new(0)
     filtered_words.each {|word| count[word] += 1}
@@ -23,7 +25,7 @@ class Wordcloud < ApplicationRecord
   end
 
   def tweets
-    options = {:count => 30, :include_rts => true}
+    options = {:count => TWEET_COUNT, :include_rts => true}
     TWITTER.user_timeline(username, options)
   end
 
