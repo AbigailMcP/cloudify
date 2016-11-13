@@ -4,13 +4,13 @@ class Wordcloud < ApplicationRecord
   TWEET_COUNT = 1000
 
   def reduced_word_count
-    Hash[ordered_word_count.first(100).shuffle]
+    ordered_word_count.first(50).shuffle.to_h
   end
 
   private
 
   def ordered_word_count
-    Hash[word_count.sort_by {|k,v| v}.reverse]
+    word_count.sort_by {|k,v| v}.reverse.to_h
   end
 
   def word_count
