@@ -3,6 +3,7 @@ class WordcloudsController < ApplicationController
     @wordcloud = Wordcloud.new
   end
 
+  # This method needs to check validity of username
   def create
     @wordcloud = Wordcloud.new(twitter_params)
     if @wordcloud.save
@@ -23,5 +24,5 @@ class WordcloudsController < ApplicationController
   def twitter_params
     params.require(:wordcloud).permit(:username)
   end
-  
+
 end
