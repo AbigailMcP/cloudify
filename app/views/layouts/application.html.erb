@@ -3,15 +3,24 @@
   <head>
     <title>TwitterWordCloud</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Open+Sans:300|Lobster' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="alert-row">
+      <% flash.each do |type, message| %>
+      <div class="alert alert-info">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= message %>
+      </div>
+      <% end %>
+    </div>
+
     <div class="container">
       <%= yield %>
     </div>
+
   </body>
 </html>

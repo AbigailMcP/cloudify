@@ -23,4 +23,5 @@ class WordcloudsController < ApplicationController
   def twitter_params
     params.require(:wordcloud).permit(:username)
   end
+  
 end
