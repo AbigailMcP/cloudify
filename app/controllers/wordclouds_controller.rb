@@ -5,10 +5,16 @@ class WordcloudsController < ApplicationController
 
   def create
     @wordcloud = Wordcloud.new(twitter_params)
-    @word_count = @wordcloud.word_count
+    if @wordcloud.save
+      redirect_to wordcloud_path(@wordcloud)
+    else
+      render :new
+    end
   end
 
   def show
+    @wordcloud = Wordcloud.find(params[:id])
+    @word_count = @wordcloud.word_count
   end
 
   private
