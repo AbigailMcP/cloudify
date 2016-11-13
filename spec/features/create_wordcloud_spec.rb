@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'Creating Wordclouds' do
+
   scenario 'a user visits the homepage' do
     visit '/'
     expect(page).to have_content 'Enter a Twitter handle to reveal their Tweet cloud'
@@ -10,6 +11,6 @@ feature 'Creating Wordclouds' do
     visit '/'
     fill_in 'wordcloud_username', with: 'abigail_mcp'
     click_on 'Cloudify!'
-    expect(find('ul')).to have_selector('li', count: 10)
+    expect(page).to have_content 'Tweet cloud for @abigail_mcp'
   end
 end
