@@ -13,10 +13,18 @@
 .size9 { font-size: 4.5em;}
 .size10 { font-size: 5em;}
 
-.vcontainer {
+.vcontainer-cloud {
   width: 80%;
   position: absolute;
-  top: 100px;
+  top: 30px;
+  left:50%;
+  transform: translate(-50%);
+}
+
+.vcontainer-home {
+  width: 80%;
+  position: absolute;
+  top: 210px;
   left:50%;
   transform: translate(-50%);
 }
@@ -35,7 +43,7 @@ body {
 h1 {
   font-family: 'lobster', serif !important;
   letter-spacing: 4px;
-  font-size: 4em !important;
+  font-size: 3.5em !important;
   padding-bottom: 35px;
   color: white !important;
 }
@@ -47,4 +55,9 @@ h1 {
 
 .panel-body {
   padding: 60px !important;
+}
+
+.img-circle {
+    border-radius: 50% !important;
+    margin-right: 30px;
 }

@@ -7,6 +7,10 @@ class Wordcloud < ApplicationRecord
     ordered_word_count.first(50).shuffle.to_h
   end
 
+  def user
+    TWITTER.user(username)
+  end
+
   private
 
   def ordered_word_count

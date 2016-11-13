@@ -15,6 +15,7 @@ class WordcloudsController < ApplicationController
   def show
     @wordcloud = Wordcloud.find(params[:id])
     @words = @wordcloud.reduced_word_count
+    @user_photo = @wordcloud.user.profile_image_url
   end
 
   private
