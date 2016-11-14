@@ -12,7 +12,6 @@ class Wordcloud < ApplicationRecord
 
   # Method to return Twitter user object - used to display profile image
   # Not sure that this belongs here in the model... looks out of place
-  # TO BE THOUGHT ABOUT
   def user
     TWITTER.user(username)
   end
@@ -47,7 +46,11 @@ class Wordcloud < ApplicationRecord
   # Method to map Tweets the their 'text' and split/flatten into an array of individual words
   # Before splitting Tweets into words, all text is downcased and punctuation is removed to prevent duplication
   def all_words
-    tweets.map {|tweet| tweet.text.downcase.gsub(/\W/, ' ').split(' ')}.flatten
+    tweet_text.map {|tweet| tweet.downcase.gsub(/\W/, ' ').split(' ')}.flatten
+  end
+
+  def tweet_text
+    tweets.map {|tweet| tweet.text}
   end
 
   # Method to retrieve a number of Tweets from the users timeline
