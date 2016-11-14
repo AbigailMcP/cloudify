@@ -6,9 +6,9 @@ Visit the [deployed version](https://cloudify.herokuapp.com/) and cloudify to yo
 
 (Please scroll down for instructions on running the app locally and notes on my approach to the project.)
 
-![Imgur](http://i.imgur.com/hBBQBEA.png)
+![Imgur](http://i.imgur.com/Dbl7TLq.png)
 
-![Imgur](http://i.imgur.com/a7q1Y6J.png)
+![Imgur](http://i.imgur.com/bJT6lnk.png)
 
 
 ## Development setup
