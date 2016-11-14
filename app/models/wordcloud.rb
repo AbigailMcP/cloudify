@@ -43,7 +43,7 @@ class Wordcloud < ApplicationRecord
     stopwords_strip = stopwords.map(&:strip)
   end
 
-  # Method to map Tweets the their 'text' and split/flatten into an array of individual words
+  # Methods to map Tweets the their 'text' and split/flatten into an array of individual words
   # Before splitting Tweets into words, all text is downcased and punctuation is removed to prevent duplication
   def all_words
     tweet_text.map {|tweet| tweet.downcase.gsub(/\W/, ' ').split(' ')}.flatten

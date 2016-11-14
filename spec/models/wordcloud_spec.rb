@@ -22,16 +22,15 @@ describe Wordcloud do
 
   describe '#reduced_word_count' do
     it 'returns an hash of 4 pairs' do
-      puts wordcloud.reduced_word_count
       expect(wordcloud.reduced_word_count.count).to eq 4
     end
 
-    it 'has smallest entry of 1' do
+    it 'has smallest value of 1 (bears)' do
       min = wordcloud.reduced_word_count.values.min
       expect(min).to eq 1
     end
 
-    it 'has largest entry of 5' do
+    it 'has largest value of 5 (cats)' do
       max = wordcloud.reduced_word_count.values.max
       expect(max).to eq 4
     end
