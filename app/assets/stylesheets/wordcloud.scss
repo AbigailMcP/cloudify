@@ -34,9 +34,10 @@ body {
   font-size: 1.5em;
   margin: 0;
   background-image: image_url('wallpaper.jpg');
-  background-size: 1440px 800px;
-  background-attachment: fixed;
+  background-position: center center;
   background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   display: compact;
 }
 
