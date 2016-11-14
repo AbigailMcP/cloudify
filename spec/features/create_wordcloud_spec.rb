@@ -7,10 +7,14 @@ feature 'Creating Wordclouds' do
     expect(page).to have_content 'Enter a Twitter handle to reveal their Tweet cloud'
   end
 
-  scenario 'a user enters a Twitter handle and sees 10 recent tweets' do
-    visit '/'
-    fill_in 'wordcloud_username', with: 'abigail_mcp'
-    click_on 'Cloudify!'
+  scenario 'a user enters a Twitter handle and sees word cloud for that user' do
+    create_cloud
     expect(page).to have_content 'Tweet cloud for @abigail_mcp'
+  end
+
+  scenario 'a user can return to homepage' do
+    create_cloud
+    click_on 'Back'
+    expect(current_path).to eq root_path
   end
 end
