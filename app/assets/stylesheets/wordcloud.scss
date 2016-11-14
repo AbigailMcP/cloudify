@@ -36,8 +36,13 @@ body {
   background-image: image_url('wallpaper.jpg');
   background-repeat:no-repeat;
   background-attachment: fixed;
-  background-size: cover;
-  // display: compact;
+
+  -webkit-background-size: cover;           
+     -moz-background-size: cover;
+          background-size: cover;
+
+  //in case background image doesn't load:
+  background-color: #3779A8
 }
 
 h1 {
