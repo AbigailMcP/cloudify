@@ -34,11 +34,10 @@ body {
   font-size: 1.5em;
   margin: 0;
   background-image: image_url('wallpaper.jpg');
-  background-position: center center;
   background-repeat:no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  display: compact;
+  // display: compact;
 }
 
 h1 {
