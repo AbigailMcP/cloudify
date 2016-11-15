@@ -1,4 +1,4 @@
-describe Wordcloud do
+describe WordCloud do
 
   tweet1 = "I am a tweet!"
   tweet2 = "Big Bears and Cats"
@@ -12,12 +12,12 @@ describe Wordcloud do
   # 'big' = 2
   # 'bears' = 1
 
-  subject(:wordcloud) { described_class.new(username: 'abigail_mcp') }
-  let(:tweet_list) { double :tweet_list, map: [tweet1, tweet2, tweet3, tweet4, tweet5] }
+  subject(:wordcloud) { described_class.new('abigail_mcp', tweet_list) }
+  let(:tweet_list) { [tweet1, tweet2, tweet3, tweet4, tweet5] }
 
   before(:each) do
     # this means that tests do not make calls to the Twitter API
-    allow(wordcloud).to receive(:tweets) { tweet_list }
+    allow(wordcloud).to receive(:tweet_text) { tweet_list }
   end
 
   describe '#reduced_word_count' do

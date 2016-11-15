@@ -1,8 +1,22 @@
-class Wordcloud < ApplicationRecord
-  validates :username, presence: true
+class WordCloud
 
-  TWEET_COUNT = 100
   WORD_COUNT = 50
+
+  attr_reader :username
+
+  def initialize(username, tweets)
+    @username = username
+    @tweets = tweets
+  end
+
+  # Methods to persist wordcloud between post and get routes w/o database
+  def self.create(username, tweets)
+    @wordcloud = WordCloud.new(username, tweets)
+  end
+
+  def self.instance
+    @wordcloud
+  end
 
   # Method to select most frequent words
   # Returns shuffled hash (so that all 'large' words are not displayed together in word cloud)
@@ -10,16 +24,9 @@ class Wordcloud < ApplicationRecord
     ordered_word_count.first(WORD_COUNT).shuffle.to_h
   end
 
-  # Method to return Twitter user object - used to display profile image
-  # Not sure that this belongs here in the model... looks out of place
-  def user
-    TWITTER.user(username)
-  end
-
   private
 
-  # Method to order words by frequency (so that words with low frequencies can be ignored)
-  # Returns ordered hash
+  # Method to order words by frequency (so that words with low frequencies can be ignored) - returns ordered hash
   def ordered_word_count
     word_count.sort_by {|k,v| v}.reverse.to_h
   end
@@ -36,8 +43,7 @@ class Wordcloud < ApplicationRecord
     all_words - stop_words
   end
 
-  # Method to read stopwords from the .txt file, stripping out trailing newlines
-  # Returns array of stopwords
+  # Method to read stopwords from the .txt file, stripping out trailing newlines - returns array of stopwords
   def stop_words
     stopwords = File.readlines('./app/assets/stopwords.txt')
     stopwords_strip = stopwords.map(&:strip)
@@ -53,11 +59,6 @@ class Wordcloud < ApplicationRecord
     tweets.map {|tweet| tweet.text}
   end
 
-  # Method to retrieve a number of Tweets from the users timeline
-  # Returns a collection of Tweets
-  def tweets
-    options = {:count => TWEET_COUNT, :include_rts => true}
-    TWITTER.user_timeline(username, options)
-  end
+  attr_reader :tweets
 
 end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :wordclouds, only: [:new, :create, :show]
+  post '/cloud', to: 'wordclouds#cloud'
+  get '/show_cloud', to: 'wordclouds#show_cloud'
   root 'wordclouds#new'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
