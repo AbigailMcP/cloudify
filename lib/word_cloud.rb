@@ -1,8 +1,14 @@
-class Wordcloud < ApplicationRecord
-  validates :username, presence: true
+class WordCloud
 
   TWEET_COUNT = 100
   WORD_COUNT = 50
+
+  attr_reader :username
+
+  def initialize(username, tweets)
+    @username = username
+    @tweets = tweets
+  end
 
   # Method to select most frequent words
   # Returns shuffled hash (so that all 'large' words are not displayed together in word cloud)
@@ -53,11 +59,6 @@ class Wordcloud < ApplicationRecord
     tweets.map {|tweet| tweet.text}
   end
 
-  # Method to retrieve a number of Tweets from the users timeline
-  # Returns a collection of Tweets
-  def tweets
-    options = {:count => TWEET_COUNT, :include_rts => true}
-    TWITTER.user_timeline(username, options)
-  end
+  attr_reader :tweets
 
 end

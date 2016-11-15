@@ -1,34 +1,22 @@
 class WordcloudsController < ApplicationController
+
+  TWEET_COUNT = 100
+  WORD_COUNT = 50
+
   def new
-    @wordcloud = Wordcloud.new
   end
 
-  def create
-    # check_user(params[:wordcloud][:username])
-    @wordcloud = Wordcloud.new(twitter_params)
-    if @wordcloud.save
-      redirect_to wordcloud_path(@wordcloud)
-    else
-      render :new
-    end
+  def cloud
+    options = {:count => TWEET_COUNT, :include_rts => true}
+    tweets = TWITTER.user_timeline(params['username'], options)
+    $wordcloud = WordCloud.new(params['username'], tweets)
+    redirect_to show_cloud_path
   end
 
-  def show
-    @wordcloud = Wordcloud.find(params[:id])
-    @words = @wordcloud.reduced_word_count
-    @user_photo = @wordcloud.user.profile_image_url
+  def show_cloud
+    @username = $wordcloud.username
+    @user_photo = $wordcloud.user.profile_image_url
+    @words = $wordcloud.reduced_word_count
   end
-
-  private
-
-  def twitter_params
-    params.require(:wordcloud).permit(:username)
-  end
-
-  # def check_user(username)
-  #   TWITTER.user(username)
-  #   rescue Twitter::Error::NotFound => e
-  #     render :new and return
-  # end
 
 end
