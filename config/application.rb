@@ -11,7 +11,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module TwitterWordCloud
+module Cloudify
   class Application < Rails::Application
     config.autoload_paths << Rails.root.join('lib')
     # Settings in config/environments/* take precedence over those specified here.

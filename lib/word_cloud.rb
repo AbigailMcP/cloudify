@@ -11,11 +11,11 @@ class WordCloud
 
   # Methods to persist wordcloud between post and get routes w/o database
   def self.create(username, tweets)
-    @wordcloud = WordCloud.new(username, tweets)
+    @word_cloud = WordCloud.new(username, tweets)
   end
 
   def self.instance
-    @wordcloud
+    @word_cloud
   end
 
   # Method to select most frequent words

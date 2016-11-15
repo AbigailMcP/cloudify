@@ -8,7 +8,7 @@
     <div class="col-md-12 text-center">
       <div class="panel panel-default">
         <div class="panel-body">
-          <% word_cloud @words, ['size1', 'size2', 'size3', 'size4', 'size5', 'size6', 'size7', 'size8', 'size9', 'size10'] do |word, css_class| %>
+          <% word_cloud @word_count, ['size1', 'size2', 'size3', 'size4', 'size5', 'size6', 'size7', 'size8', 'size9', 'size10'] do |word, css_class| %>
             <span class="<%= css_class %>">
               <%= word %>
             </span>
