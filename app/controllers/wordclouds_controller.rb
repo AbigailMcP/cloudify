@@ -3,8 +3,8 @@ class WordcloudsController < ApplicationController
     @wordcloud = Wordcloud.new
   end
 
-  # This method needs to check validity of username
   def create
+    # check_user(params[:wordcloud][:username])
     @wordcloud = Wordcloud.new(twitter_params)
     if @wordcloud.save
       redirect_to wordcloud_path(@wordcloud)
@@ -24,5 +24,11 @@ class WordcloudsController < ApplicationController
   def twitter_params
     params.require(:wordcloud).permit(:username)
   end
+
+  # def check_user(username)
+  #   TWITTER.user(username)
+  #   rescue Twitter::Error::NotFound => e
+  #     render :new and return
+  # end
 
 end
