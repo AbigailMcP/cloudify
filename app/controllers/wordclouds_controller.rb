@@ -12,6 +12,9 @@ class WordcloudsController < ApplicationController
     tweets = TWITTER.user_timeline(params['username'], options)
     wordcloud = WordCloud.create(params['username'], tweets)
     redirect_to show_cloud_path
+    rescue Twitter::Error::NotFound
+      flash[:notice] = "Sorry, that username doesn't exist!"
+      redirect_to root_path
   end
 
   def show_cloud

@@ -17,4 +17,10 @@ feature 'Creating Wordclouds' do
     click_on 'Back'
     expect(current_path).to eq root_path
   end
+
+  scenario 'a user receives a flash message for incorrect user - stays on homepage' do
+    create_cloud('skdjfnsjkndfsdfjkn')
+    expect(page).to have_content "Sorry, that username doesn't exist!"
+    expect(current_path).to eq root_path
+  end
 end
