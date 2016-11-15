@@ -15,13 +15,7 @@ class WordCloud
   def reduced_word_count
     ordered_word_count.first(WORD_COUNT).shuffle.to_h
   end
-
-  # Method to return Twitter user object - used to display profile image
-  # Not sure that this belongs here in the model... looks out of place
-  def user
-    TWITTER.user(username)
-  end
-
+  
   def self.create(username, tweets)
     @wordcloud = WordCloud.new(username, tweets)
   end
@@ -32,8 +26,7 @@ class WordCloud
 
   private
 
-  # Method to order words by frequency (so that words with low frequencies can be ignored)
-  # Returns ordered hash
+  # Method to order words by frequency (so that words with low frequencies can be ignored) - returns ordered hash
   def ordered_word_count
     word_count.sort_by {|k,v| v}.reverse.to_h
   end
@@ -50,8 +43,7 @@ class WordCloud
     all_words - stop_words
   end
 
-  # Method to read stopwords from the .txt file, stripping out trailing newlines
-  # Returns array of stopwords
+  # Method to read stopwords from the .txt file, stripping out trailing newlines - returns array of stopwords
   def stop_words
     stopwords = File.readlines('./app/assets/stopwords.txt')
     stopwords_strip = stopwords.map(&:strip)

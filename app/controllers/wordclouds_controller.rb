@@ -16,7 +16,7 @@ class WordcloudsController < ApplicationController
   def show_cloud
     wordcloud = WordCloud.instance
     @username = wordcloud.username
-    @user_photo = wordcloud.user.profile_image_url
+    @user_photo = TWITTER.user(@username).profile_image_url
     @words = wordcloud.reduced_word_count
   end
 
