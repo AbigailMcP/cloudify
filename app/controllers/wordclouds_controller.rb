@@ -1,3 +1,5 @@
+require 'word_cloud'
+
 class WordcloudsController < ApplicationController
 
   TWEET_COUNT = 100
