@@ -13,27 +13,9 @@ Visit the [deployed version](https://cloudify.herokuapp.com/) and cloudify to yo
 
 ## Development setup
 
-### Installation prerequisites
-
-First, you will need to install [Homebrew](http://brew.sh/).
-
-Once installed, you can run the following via the Homebrew package manager in the command line.
-
-Ruby
-
-	$ brew install ruby
-
-PostgreSQL
-
-	$ brew install postgres
-
-Bundler
-
-	$ gem install bundler
-
 ### Running the app
 
-Clone the repository on GitHub:
+Clone the repository from GitHub:
 
 	$ git clone https://github.com/AbigailMcP/cloudify.git
 
@@ -54,10 +36,6 @@ Install all the dependencies from the Gemfile using Bundler:
 
 	$ bundle install
 
-Create the necessary Cloudify databases and run the migrations:
-
-	$ rails db:create db:migrate
-
 Run the Rails server:
 
 	$ rails s
@@ -70,11 +48,22 @@ Run tests using RSpec:
 
 ## Notes on approach
 
-Coming soon!
+### Back-end
+I used Rails to build this app in order to get it set up quickly and easily. To begin with, I had a WordCloud model, and used the Rails provided 'resources' to arrange my routes. However, I soon came to realise that my database was redundant - I didn't need to store any of the information from the Twitter API, it only needed to persist between the POST route (`/cloud`) and the GET route (`/show_cloud`).
+
+Taking this into account, I decided to migrate my model across to a `/lib` class. This contains all the logic needed to provide my front end with a hash of words and their corresponding frequencies.
+
+This gave me a couple of issues when deploying to Heroku - namely that my file in `/lib` was not being loaded. I got around this by requiring the file in `wordclouds_controller.rb`, however wonder whether there is a better way to achieve the same outcome.
+
+### Front-end
+
+I created `wordcloud_helper.rb` to store the logic relating to the css classes. This helper method effectively chooses the right css class for each word depending on their 'weight', ie their frequency compared to the most frequent.
+
+As this is presentational logic only, I decided it was not the responsibility of the `WordCloud` class.
 
 #### To do
 
 - Button on cloud page linking back to homepage - done
-- Error handling for invalid username
-- Option to change colour of word cloud
-- Snazzy Favicon!
+- Error handling for invalid username - done
+- Snazzy Favicon! - done
+- Option to change colour of word cloud - OUTSTANDING
