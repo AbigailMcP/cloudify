@@ -61,9 +61,10 @@ I created `wordcloud_helper.rb` to store the logic relating to the css classes. 
 
 As this is presentational logic only, I decided it was not the responsibility of the `WordCloud` class.
 
-#### To do
+### To do
 
-- Button on cloud page linking back to homepage - done
 - Error handling for invalid username - done
+- Button on cloud page linking back to homepage - done
 - Snazzy Favicon! - done
 - Option to change colour of word cloud - OUTSTANDING
+- Remove double @@ in cloud page if user enters @username - OUTSTANDING
