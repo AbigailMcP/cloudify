@@ -22,6 +22,14 @@ class WordCloud
     TWITTER.user(username)
   end
 
+  def self.create(username, tweets)
+    @wordcloud = WordCloud.new(username, tweets)
+  end
+
+  def self.instance
+    @wordcloud
+  end
+
   private
 
   # Method to order words by frequency (so that words with low frequencies can be ignored)
