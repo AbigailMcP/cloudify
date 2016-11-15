@@ -1,7 +1,6 @@
 class WordcloudsController < ApplicationController
 
   TWEET_COUNT = 100
-  WORD_COUNT = 50
 
   def new
   end
@@ -9,7 +8,7 @@ class WordcloudsController < ApplicationController
   def cloud
     options = {:count => TWEET_COUNT, :include_rts => true}
     tweets = TWITTER.user_timeline(params['username'], options)
-    @wordcloud = WordCloud.create(params['username'], tweets)
+    wordcloud = WordCloud.create(params['username'], tweets)
     redirect_to show_cloud_path
   end
 

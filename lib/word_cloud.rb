@@ -1,6 +1,5 @@
 class WordCloud
 
-  TWEET_COUNT = 100
   WORD_COUNT = 50
 
   attr_reader :username
@@ -10,18 +9,19 @@ class WordCloud
     @tweets = tweets
   end
 
-  # Method to select most frequent words
-  # Returns shuffled hash (so that all 'large' words are not displayed together in word cloud)
-  def reduced_word_count
-    ordered_word_count.first(WORD_COUNT).shuffle.to_h
-  end
-  
+  # Methods to persist wordcloud between post and get routes w/o database
   def self.create(username, tweets)
     @wordcloud = WordCloud.new(username, tweets)
   end
 
   def self.instance
     @wordcloud
+  end
+
+  # Method to select most frequent words
+  # Returns shuffled hash (so that all 'large' words are not displayed together in word cloud)
+  def reduced_word_count
+    ordered_word_count.first(WORD_COUNT).shuffle.to_h
   end
 
   private
