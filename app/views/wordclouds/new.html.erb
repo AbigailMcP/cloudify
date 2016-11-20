@@ -31,7 +31,11 @@
         <div class="example-users">
           <% @examples.each do |username, photo| %>
             <div class="user">
-              <h3><span><%= image_tag photo, class: "img-circle-examples" %></span>@<%= username %></h3>
+              <%= form_tag "/cloud", method: "post" do %>
+                <%= hidden_field_tag :username, username %>
+                <%= submit_tag "Submit", :type => :image, :src => photo, class: "img-circle-examples"%>
+              <% end %>
+              <h3>@<%= username %></h3>
             </div>
           <% end %>
         </div>
