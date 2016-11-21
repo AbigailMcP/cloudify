@@ -6,7 +6,7 @@ class WordcloudsController < ApplicationController
   USERS = ['abigail_mcp', 'pixielabs', 'BBCNews']
 
   def new
-    @examples = get_info(USERS)
+    @examples = create_examples(USERS)
   end
 
   def post_cloud
@@ -31,7 +31,7 @@ class WordcloudsController < ApplicationController
     WordCloud.new(username, tweets)
   end
 
-  def get_info(users)
+  def create_examples(users)
     users.map do |username|
       [username, TWITTER.user(username).profile_image_url]
     end.to_h
