@@ -2,20 +2,9 @@ class WordCloud
 
   WORD_COUNT = 50
 
-  attr_reader :username
-
   def initialize(username, tweets)
     @username = username
     @tweets = tweets
-  end
-
-  # Methods to persist wordcloud between post and get routes w/o database
-  def self.create(username, tweets)
-    @word_cloud = WordCloud.new(username, tweets)
-  end
-
-  def self.instance
-    @word_cloud
   end
 
   # Method to select most frequent words
@@ -59,6 +48,6 @@ class WordCloud
     tweets.map {|tweet| tweet.text}
   end
 
-  attr_reader :tweets
+  attr_reader :tweets, :username
 
 end

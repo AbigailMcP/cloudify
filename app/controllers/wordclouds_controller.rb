@@ -23,16 +23,18 @@ class WordcloudsController < ApplicationController
     redirect_to root_path
   end
 
-  def get_info(users)
-    users.map do |username|
-      [username, TWITTER.user(username).profile_image_url]
-    end.to_h
-  end
+  private
 
   def create_wordcloud(username)
     options = {:count => TWEET_COUNT, :include_rts => true}
     tweets = TWITTER.user_timeline(username, options)
     WordCloud.new(username, tweets)
+  end
+
+  def get_info(users)
+    users.map do |username|
+      [username, TWITTER.user(username).profile_image_url]
+    end.to_h
   end
 
 end
