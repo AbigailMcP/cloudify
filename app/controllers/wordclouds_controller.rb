@@ -10,9 +10,7 @@ class WordcloudsController < ApplicationController
   end
 
   def post_cloud
-    options = {:count => TWEET_COUNT, :include_rts => true}
-    tweets = TWITTER.user_timeline(params[:username], options)
-    word_cloud = WordCloud.new(params[:username], tweets)
+    word_cloud = create_wordcloud(params[:username])
     @username = word_cloud.username
     @user_photo = TWITTER.user(@username).profile_image_url
     @word_count = word_cloud.reduced_word_count
@@ -29,6 +27,12 @@ class WordcloudsController < ApplicationController
     users.map do |username|
       [username, TWITTER.user(username).profile_image_url]
     end.to_h
+  end
+
+  def create_wordcloud(username)
+    options = {:count => TWEET_COUNT, :include_rts => true}
+    tweets = TWITTER.user_timeline(username, options)
+    WordCloud.new(username, tweets)
   end
 
 end
