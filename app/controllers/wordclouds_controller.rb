@@ -3,10 +3,10 @@ require 'word_cloud'
 class WordcloudsController < ApplicationController
 
   TWEET_COUNT = 100
+  USERS = ['abigail_mcp', 'pixielabs', 'BBCNews']
 
   def new
-    users = ['abigail_mcp', 'pixielabs', 'guardian']
-    @examples = get_info(users)
+    @examples = get_info(USERS)
   end
 
   def cloud
