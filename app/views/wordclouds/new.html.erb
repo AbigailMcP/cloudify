@@ -1,4 +1,4 @@
-<div class="vcontainer-home">
+<div class="container-home">
   <div class="row">
     <div class="col-md-12 text-center">
       <%= image_tag 'cloudify_logo.png', class: 'logo' %>
@@ -29,6 +29,8 @@
     <br>
     <br>
     <br>
+  </div>
+  <div class="container-examples">
     <div class="row">
       <div class="col-md-12 text-center">
         <h4>Or try one of the following as an example:</p>
@@ -38,13 +40,13 @@
       <div class="col-md-12 text-center">
         <div class="example-users">
           <% @examples.each do |username, photo| %>
-            <div class="user">
-              <%= form_tag "/cloud", method: "post" do %>
-                <%= hidden_field_tag :username, username %>
-                <%= submit_tag "Submit", :type => :image, :src => photo, class: "img-circle-examples"%>
-              <% end %>
-              <h3>@<%= username %></h3>
-            </div>
+          <div class="user">
+            <%= form_tag "/cloud", method: "post" do %>
+            <%= hidden_field_tag :username, username %>
+            <%= submit_tag "Submit", :type => :image, :src => photo, class: "img-circle-examples"%>
+            <% end %>
+            <h3>@<%= username %></h3>
+          </div>
           <% end %>
         </div>
       </div>
