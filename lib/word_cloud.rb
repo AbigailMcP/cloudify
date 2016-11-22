@@ -26,7 +26,7 @@ class WordCloud
   end
 
   def clean_words
-    tweet_words.map {|tweet| tweet.gsub(/\b(http\w*)\b/,' ').gsub(/\W/, ' ').split(' ')}.flatten
+    tweet_words.map {|tweet| tweet.gsub(/\b(http\w*)\b/,' ').split(/\W/)}.flatten
   end
 
   def filtered_words
