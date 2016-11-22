@@ -21,15 +21,15 @@ class WordCloud
 
   def word_count
     count = Hash.new(0)
-    filter_punctuation.each {|word| count[word] += 1}
+    clean_words.each {|word| count[word] += 1}
     count
   end
 
-  def filter_punctuation
-    filter_stop_words.map {|word| word.gsub(/\b(http\w*)\b/,' ').gsub(/\W/, ' ').split(' ')}.flatten
+  def clean_words
+    filtered_words.map {|tweet| tweet.gsub(/\b(http\w*)\b/,' ').gsub(/\W/, ' ').split(' ')}.flatten
   end
 
-  def filter_stop_words
+  def filtered_words
     tweet_words - stop_words
   end
 
@@ -39,7 +39,7 @@ class WordCloud
   end
 
   def tweet_words
-    tweet_text.map {|tweet| tweet.downcase.split(' ').flatten
+    tweet_text.map {|tweet| tweet.downcase.split(' ')}.flatten
   end
 
   def tweet_text
