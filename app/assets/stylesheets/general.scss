@@ -1,0 +1,102 @@
+.vcontainer-cloud {
+  width: 80%;
+  position: absolute;
+  top: 30px;
+  left:50%;
+  transform: translate(-50%);
+}
+
+.container-home {
+  width: 80%;
+  position: absolute;
+  top: 100px;
+  left:50%;
+  transform: translate(-50%);
+}
+
+.container-examples {
+  width: 100%;
+  padding-top: 15px;
+  position: absolute;
+  bottom: 0;
+  left:50%;
+  transform: translate(-50%);
+  background-color: rgba(55,121,168,0.8);
+}
+
+body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 1.5em;
+  margin: 0;
+  background-image: image_url('wallpaper.jpg');
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  //in case background image doesn't load:
+  background-color: #3779A8
+}
+
+h1 {
+  font-family: 'lobster', serif !important;
+  letter-spacing: 4px;
+  font-size: 3.5em !important;
+  padding-bottom: 35px;
+  color: white !important;
+}
+
+h3 {
+  font-family: 'lobster', serif !important;
+  font-size: 1.5em !important;
+  color: white !important;
+}
+
+.user {
+  display: inline-block;
+  padding: 35px;
+  padding-top: 55px;
+}
+
+.panel-default {
+  background-color: rgba(255,255,255,0.3) !important;
+  border-style: none !important;
+}
+
+.panel-body {
+  padding: 60px !important;
+}
+
+.img-circle {
+    border-radius: 50% !important;
+    margin-right: 30px;
+}
+
+.img-circle-examples {
+    border-radius: 50% !important;
+}
+
+.img-circle-examples:hover {
+  border: solid 3px white;
+  margin: -3px;
+}
+
+.back-button {
+  padding-bottom: 30px;
+}
+
+.btn {
+    padding: 14px 24px;
+    border-color: white !important;
+    border-style: solid;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: none !important;
+}
+
+.btn:hover {
+    background-color: white !important;
+    color: #3779A8 !important;
+}
+
+.logo {
+  width: 250px;
+}
