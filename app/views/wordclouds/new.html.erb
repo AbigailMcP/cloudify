@@ -12,43 +12,22 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <h4>Enter a Twitter handle to reveal their Tweet cloud:</p>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <%= form_tag "/cloud", method: "post", class: "form-inline text-center" do %>
-      <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-addon">@</div>
-          <%= text_field_tag :username, nil, placeholder: 'Twitter handle', class: "form-control", required: true%>
-        </div>
-      </div>
-      <%= submit_tag 'Cloudify!', class: "btn btn-primary"  %>
-      <% end %>
-    </div>
-    <br>
-    <br>
-    <br>
-  </div>
-  <div class="container-examples">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h4>Or try one of the following as an example:</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="example-users">
-          <% @examples.each do |username, photo| %>
-          <div class="user">
-            <%= form_tag "/cloud", method: "post" do %>
-            <%= hidden_field_tag :username, username %>
-            <%= submit_tag "Submit", :type => :image, :src => photo, class: "img-circle-examples"%>
-            <% end %>
-            <h3>@<%= username %></h3>
-          </div>
-          <% end %>
-        </div>
-      </div>
     </div>
   </div>
+  <br>
+  <div class="row">
+    <%= form_tag "/cloud", method: "post", class: "form-inline text-center" do %>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon">@</div>
+        <%= text_field_tag :username, nil, placeholder: 'Twitter handle', class: "form-control", required: true%>
+      </div>
+    </div>
+    <%= submit_tag 'Cloudify!', class: "btn btn-primary"  %>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <br>
+  <%= render "examples" %>
+</div>
