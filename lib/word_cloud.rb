@@ -2,6 +2,8 @@ class WordCloud
 
   WORD_COUNT = 50
 
+  attr_reader :username
+
   def initialize(username, tweets)
     @username = username
     @tweets = tweets
@@ -48,6 +50,6 @@ class WordCloud
     tweets.map {|tweet| tweet.text}
   end
 
-  attr_reader :tweets, :username
+  attr_reader :tweets
 
 end
