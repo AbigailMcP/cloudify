@@ -21,16 +21,16 @@ class WordCloud
 
   def word_count
     count = Hash.new(0)
-    clean_words.each {|word| count[word] += 1}
+    filtered_words.each {|word| count[word] += 1}
     count
   end
 
   def clean_words
-    filtered_words.map {|tweet| tweet.gsub(/\b(http\w*)\b/,' ').gsub(/\W/, ' ').split(' ')}.flatten
+    tweet_words.map {|tweet| tweet.gsub(/\b(http\w*)\b/,' ').gsub(/\W/, ' ').split(' ')}.flatten
   end
 
   def filtered_words
-    tweet_words - stop_words
+    clean_words - stop_words
   end
 
   def stop_words
