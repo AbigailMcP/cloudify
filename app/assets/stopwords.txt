@@ -81,8 +81,6 @@ himself
 his
 how
 how's
-http
-https
 i
 i'd
 i'll

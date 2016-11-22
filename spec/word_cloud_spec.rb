@@ -5,6 +5,7 @@ describe WordCloud do
   tweet3 = "big CATS"
   tweet4 = "tweet cats"
   tweet5 = "tweet cats"
+  tweet6 = "https://example"
 
   # Frequency check for test data:
   # 'cats' = 4
@@ -52,6 +53,11 @@ describe WordCloud do
     it 'contains only downcase words' do
       hash = wordcloud.reduced_word_count
       expect(hash.key?('Cats')).to eq false
+    end
+
+    it 'does not include any links' do
+      hash = wordcloud.reduced_word_count
+      expect(hash.key?('https://example')).to eq false
     end
   end
 
