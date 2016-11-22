@@ -14,7 +14,6 @@ class WordcloudsController < ApplicationController
     @username = word_cloud.username
     @user_photo = TWITTER.user(@username).profile_image_url
     @word_count = word_cloud.reduced_word_count
-    Rollbar.error('Hello world')
     rescue Twitter::Error::NotFound
       flash[:notice] = "Sorry, that username doesn't exist!"
       redirect_to root_path

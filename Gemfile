@@ -33,6 +33,8 @@ gem 'twitter'
 gem 'dotenv-rails'
 # Use bootstrap for rails
 gem 'bootstrap-sass'
+# For managing exceptions
+gem 'rollbar'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
