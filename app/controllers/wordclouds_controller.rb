@@ -10,13 +10,16 @@ class WordcloudsController < ApplicationController
   end
 
   def post_cloud
-    word_cloud = create_wordcloud(params[:username])
-    @username = word_cloud.username
-    @user_photo = TWITTER.user(@username).profile_image_url
-    @word_count = word_cloud.reduced_word_count
+    @username = params[:username]
+    if TWITTER.user(@username).protected?
+      alert("Sorry, that user is protected!")
+    else
+      word_cloud = create_wordcloud(@username)
+      @user_photo = TWITTER.user(@username).profile_image_url
+      @word_count = word_cloud.reduced_word_count
+    end
     rescue Twitter::Error::NotFound
-      flash[:notice] = "Sorry, that username doesn't exist!"
-      redirect_to root_path
+      alert("Sorry, that username doesn't exist!")
   end
 
   def get_cloud
@@ -29,6 +32,11 @@ class WordcloudsController < ApplicationController
     options = {:count => TWEET_COUNT, :include_rts => true}
     tweets = TWITTER.user_timeline(username, options)
     WordCloud.new(username, tweets)
+  end
+
+  def alert(message)
+    flash[:notice] = message
+    redirect_to root_path
   end
 
   def create_examples(users)
